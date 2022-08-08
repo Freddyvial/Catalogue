@@ -32,7 +32,7 @@ export class CatalogueService {
    * 
    * @returns 
    */
-  getAllCharacter$(): Observable<any> {
+  getAllCharacter(): Observable<any> {
     return this.http.get(`${this.URL}/character`)
       .pipe(
         map(({ results }: any) => {
@@ -40,7 +40,7 @@ export class CatalogueService {
         })
       )
   }
-  getAllCharacterUrl$(url: string = ''): Observable<any> {
+  getAllCharacterUrl(url: string = ''): Observable<any> {
     return this.http.get(url)
       .pipe(
         map(({ results }: any) => {
@@ -48,7 +48,7 @@ export class CatalogueService {
         })
       )
   }
-  getAllCharacterInfoUrl$(url: string = ''): Observable<any> {
+  getAllCharacterInfoUrl(url: string = ''): Observable<any> {
     return this.http.get(url)
       .pipe(
         map(({ info }: any) => {
@@ -56,7 +56,7 @@ export class CatalogueService {
         })
       )
   }
-  getAllCharacterInfo$(): Observable<any> {
+  getAllCharacterInfo(): Observable<any> {
     return this.http.get(`${this.URL}/character`)
       .pipe(
         map(({ info }: any) => {
@@ -64,7 +64,7 @@ export class CatalogueService {
         })
       )
   }
-  getEpisodesByIds$(ids: string): Observable<any> {
+  getEpisodesByIds(ids: string): Observable<any> {
     return this.http.get(`${this.URL}/episode/${ids}`)
       .pipe(
         map((results: any) => {
@@ -72,7 +72,7 @@ export class CatalogueService {
         })
       )
   }
-  getLocationById$(id: string): Observable<any> {
+  getLocationById(id: string): Observable<any> {
     return this.http.get(`${this.URL}/location/${id}`)
       .pipe(
         map((results: any) => {
@@ -84,7 +84,7 @@ export class CatalogueService {
    * 
    * @returns Devolver personajes random
    */
-  getAllRandom$(url: string = ''): Observable<any> {
+  getAllRandom(url: string = ''): Observable<any> {
     return this.http.get(url.length > 0 ? url : `${this.URL}/character`)
       .pipe(
         mergeMap(({ results }: any) => this.skipById(results, 2)),

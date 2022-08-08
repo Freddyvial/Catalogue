@@ -60,12 +60,12 @@ export class PopUpCharacterDetailComponent {
         await this.espisodesByIds(paramsUrl)
     }
     async espisodesByIds(paramsUrl: string): Promise<any> {
-        this.episodes = await this.catalogueService.getEpisodesByIds$(paramsUrl).toPromise()
+        this.episodes = await this.catalogueService.getEpisodesByIds(paramsUrl).toPromise()
         if (!Array.isArray(this.episodes))
             this.episodes = [this.episodes];
     }
     async getLocation(url: string = '') {
         let array = url.split('/');
-        this.location = await this.catalogueService.getLocationById$(array[array.length - 1]).toPromise()
+        this.location = await this.catalogueService.getLocationById(array[array.length - 1]).toPromise()
     }
 }

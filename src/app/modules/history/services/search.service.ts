@@ -13,25 +13,25 @@ export class SearchService {
 
   constructor(private http: HttpClient) { }
 
-  searchCharacter$(datos: CharacterCatalogueFilter): Observable<any> {
+  searchCharacter(datos: CharacterCatalogueFilter): Observable<any> {
     return this.http.get(`${this.URL}/character` + this.filterString(datos))
       .pipe(
         map(({ results }: any) => results)
       )
   }
-  searchCharacterUrl$(url: string): Observable<any> {
+  searchCharacterUrl(url: string): Observable<any> {
     return this.http.get(url)
       .pipe(
         map(({ results }: any) => results)
       )
   }
-  searchCharacterUrlInfo$(url: string): Observable<any> {
+  searchCharacterUrlInfo(url: string): Observable<any> {
     return this.http.get(url)
       .pipe(
         map(({ info }: any) => info)
       )
   }
-  searchCharacterInfo$(datos: CharacterCatalogueFilter): Observable<any> {
+  searchCharacterInfo(datos: CharacterCatalogueFilter): Observable<any> {
     return this.http.get(`${this.URL}/character` + this.filterString(datos))
       .pipe(
         map(({ info }: any) => info)

@@ -21,8 +21,8 @@ export class HistoryPageComponent implements OnInit {
   urlNext(url: string = '') {
     try {
       this.blockUI?.start();
-      this.listResults$ = this.searchService.searchCharacterUrl$(url);
-      this.info$ = this.searchService.searchCharacterUrlInfo$(url);
+      this.listResults$ = this.searchService.searchCharacterUrl(url);
+      this.info$ = this.searchService.searchCharacterUrlInfo(url);
     } catch (error) {
 
     } finally {
@@ -47,8 +47,8 @@ export class HistoryPageComponent implements OnInit {
     } else {
       try {
         this.blockUI?.start();
-        this.listResults$ = this.searchService.searchCharacter$(filter);
-        this.info$ = this.searchService.searchCharacterInfo$(filter);
+        this.listResults$ = this.searchService.searchCharacter(filter);
+        this.info$ = this.searchService.searchCharacterInfo(filter);
       } catch (error) {
 
       } finally {

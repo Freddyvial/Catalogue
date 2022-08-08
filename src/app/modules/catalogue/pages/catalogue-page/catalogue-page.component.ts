@@ -21,20 +21,20 @@ export class CataloguePageComponent implements OnInit, OnDestroy {
   }
 
   async loadDataAll(): Promise<any> {
-    this.catalogueTrending = await this.catalogueService.getAllCharacter$().toPromise()
-    this.info$ = await this.catalogueService.getAllCharacterInfo$().toPromise();
+    this.catalogueTrending = await this.catalogueService.getAllCharacter().toPromise()
+    this.info$ = await this.catalogueService.getAllCharacterInfo().toPromise();
 
   }
 
   loadDataRandom(): void {
-    this.catalogueService.getAllRandom$()
+    this.catalogueService.getAllRandom()
       .subscribe((response: any) => {
         this.catalogueRandom = response
       })
   }
   async urlNext(url: string = '') {
-    this.catalogueTrending = await this.catalogueService.getAllCharacterUrl$(url).toPromise()
-    this.info$ = await this.catalogueService.getAllCharacterInfoUrl$(url).toPromise();
+    this.catalogueTrending = await this.catalogueService.getAllCharacterUrl(url).toPromise()
+    this.info$ = await this.catalogueService.getAllCharacterInfoUrl(url).toPromise();
   }
   ngOnDestroy(): void {
 
