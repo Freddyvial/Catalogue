@@ -1,0 +1,65 @@
+.closeBotton {
+    float: right;
+}
+
+.link {
+    cursor: pointer;
+}
+
+::ng-deep .mat-dialog-container {
+    background: radial-gradient(black, transparent) !important;
+    overflow: unset;
+}
+
+.card-player {
+    background-color: var(--color-2);
+    height: auto;
+    border-radius: var(--border-radius-1);
+    display: flex;
+    cursor: pointer;
+    transition: all ease var(--animation-1);
+    justify-content: space-between;
+    color: aliceblue;
+}
+.card-player .content-player {
+    font-weight: 500;
+    align-items: center;
+    align-content: center;
+    padding: 0 0.75em 0.75rem .75rem;
+    width: 100%;
+}
+.cover {
+    position: relative;
+    width: 17rem;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+.content-text {
+    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.section--generic {
+    margin-bottom: 2rem;
+}
+
+.section--generic__player--zone .player--list {
+    display: grid;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1.15rem;
+}
+.mat-expansion-panel-header:not([aria-disabled=true]) {
+    cursor: pointer;
+    background: linear-gradient(45deg, black, transparent);
+}
+.mat-expansion-panel-header-title, .mat-expansion-panel-header-description {
+    display: flex;
+    flex-grow: 1;
+    margin-right: 16px;
+    justify-content: flex-end;
+}

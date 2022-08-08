@@ -1,0 +1,40 @@
+<div class="play-list-body">
+    <ul class="play-list-table-header">
+        <li style="cursor:pointer;" (click)="changeSort('name')">Nombre ❤</li>
+        <li style="cursor:pointer;" (click)="changeSort('status')">Estado 🆗</li>
+        <li style="cursor:pointer;" (click)="changeSort('species')">Espécie </li>
+        <li style="cursor:pointer;" (click)="changeSort('gender')"><i class="il uil-mars"></i><i class="il uil-venus"></i></li>
+    </ul>
+
+    <ul class="play-list-rows" *ngFor="let character of characters  | orderList:optionSort.property:optionSort.order">
+
+        <li class="catalogue-name">
+            <ng-container *ngTemplateOutlet="coverSection;context:{character:character}"></ng-container>
+        </li>
+        <li class="catalogue-name-opacity">
+            {{character.status}}
+        </li>
+        <li class="catalogue-name-opacity">
+            {{character.species}}
+        </li>
+        <li class="catalogue-name-opacity">
+            {{character.gender}}
+        </li>
+    </ul>
+    <mat-paginator [length]="info?.count" [pageSize]="pageSize" (page)="getPaginatorData($event)">
+    </mat-paginator>
+
+</div>
+
+<!--template del cover-->
+<ng-template #coverSection let-character="character">
+
+    <div class="cover-section">
+        <img appImgBroken class="cover-catalogue" [src]="character.image" [alt]="character.name">
+        <div class="cover-info">
+            <div class="name-catalogue">{{character.name}}</div>
+            <div class="name-catalogue-details">{{character.name}}</div>
+        </div>
+    </div>
+
+</ng-template>

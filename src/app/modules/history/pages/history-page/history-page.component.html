@@ -1,0 +1,7 @@
+<div class="history-page">
+    <app-search (callbackData)="receiveData($event)"></app-search>
+    <div *ngIf="!filtrosVacios">
+
+    </div>
+    <app-history-list-body (callbackData)="urlNext($event)" [info]="info$ | async" [characters]="listResults$ | async"></app-history-list-body>
+</div>

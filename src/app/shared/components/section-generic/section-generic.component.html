@@ -1,0 +1,13 @@
+<div class="section--generic">
+    <h1 class="section--generic__title">{{title}}</h1>
+
+    <div class="section--generic__player--zone">
+        <ul class="player--list" [ngClass]="{'card-small':mode === 'small','card-big':mode === 'big'}">
+            <li *ngFor="let character of dataCatalogueCharacter">
+                <app-character-catalogue [character]="character" [mode]="mode"></app-character-catalogue>
+            </li>
+        </ul>
+        <mat-paginator *ngIf="mode === 'small'"  [length]="info?.count" [pageSize]="pageSize" (page)="getPaginatorData($event)">
+        </mat-paginator>
+    </div>
+</div>

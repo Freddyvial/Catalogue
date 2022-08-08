@@ -1,0 +1,50 @@
+<div mat-dialog-actions style="justify-content: flex-end;padding: 0;min-height: unset;">
+  <button style="font-size:xx-large ;" mat-raised-button type="button" mat-dialog-close><i class="uil uil-multiply"></i></button>
+</div>
+<div mat-dialog-content style="overflow:unset !important">
+  <img [src]="character.image" [alt]="character.name" class="cover">
+  <div class="card-player player-small">
+
+    <div class="content-player">
+      <div style="display: grid;justify-content: space-around;">
+        <h1>{{character.name}}</h1>
+        <h2>Especie:&nbsp; &nbsp; {{character.species}}</h2>
+        <h2>Estado:&nbsp; &nbsp; {{character.status}}</h2>
+        <h2>Género:&nbsp; &nbsp; {{character.gender}}</h2>
+      </div>
+
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              UBICACIÓN
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          {{location.name}} &nbsp; <strong> Dimención:</strong> &nbsp; {{location.dimension}}&nbsp;<strong>Tipo:
+          </strong> &nbsp; {{location.type}}
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              EPISODIOS
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div style="width: 100%; height: auto; overflow-y: scroll;">
+
+            <div class="col-md-3" *ngFor="let episode of episodes | 
+            slice: lowValue : highValue">
+            {{episode.episode}} &nbsp; &nbsp; {{episode.name}}&nbsp; &nbsp; {{episode.air_date}}
+            </div>
+
+            <mat-paginator [length]="episodes.length" [pageSize]="pageSize"
+              (page)="getPaginatorData($event)">
+            </mat-paginator>
+          </div>
+
+        </mat-expansion-panel>
+      </mat-accordion>
+
+
+    </div>
+  </div>
+</div>

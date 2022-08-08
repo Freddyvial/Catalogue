@@ -1,0 +1,8 @@
+<div class="catalogues-page">
+    <!--section top (small)-->
+    <app-section-generic (callbackData)="urlNext($event)" [info]="info$" [dataCatalogueCharacter]="catalogueTrending" [mode]="'small'" [title]="'Todos los personajes'">
+    </app-section-generic>
+    <!--section medium (big)-->
+    <app-section-generic (callbackData)="urlNext($event)" [info]="info$" [dataCatalogueCharacter]="catalogueRandom" [mode]="'big'" [title]="'Los mejores personajes'">
+    </app-section-generic>
+</div>
